@@ -13,6 +13,7 @@ public class User {
     private String lastName;
     private int age;
     private String email;
+    private String password;
     @ManyToMany(cascade = CascadeType.REFRESH)
     private Set<Role> roles;
 
@@ -75,6 +76,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public Set<Role> getRoles() {
