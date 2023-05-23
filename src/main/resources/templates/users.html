@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<div align="center">
+    <h2>User Manager</h2>
+    <form method="get" action="search">
+        <label>
+            <input type="number" name="keyword" placeholder="Find User by ID"/>
+        </label>
+        <input type="submit" value="Search"/>
+    </form>
+    <h3>
+        <a th:href="@{/new}">
+            <button type="submit" style="font-size: 1em; padding:3px 120px;">Add new User</button>
+        </a>
+    </h3>
+    <table border="1" cellpadding="5">
+        <tr align="center">
+            <th>ID</th>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+        <tr align="center" th:each="user : ${userList}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.age}"></td>
+            <td th:text="${user.email}"></td>
+            <td>
+                <a th:href="@{/edit(id=${user.id})}">
+                    <button type="submit">Edit</button>
+                </a>
+                <form th:method="DELETE" th:action="@{{id}(id=${user.getId()})}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
