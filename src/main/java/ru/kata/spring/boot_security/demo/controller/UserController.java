@@ -55,4 +55,14 @@ public class UserController {
         userService.delete(id);
         return "redirect:/";
     }
+
+    @GetMapping("/user")
+    public String user() {
+        return "user";
+    }
+
+    @GetMapping("/index")
+    public String index() {
+        return "index";
+    }
 }
