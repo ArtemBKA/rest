@@ -1,6 +1,7 @@
 package ru.kata.spring.boot_security.demo.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -12,6 +13,8 @@ public class User {
     private String lastName;
     private int age;
     private String email;
+    @ManyToMany(cascade = CascadeType.REFRESH)
+    private Set<Role> roles;
 
     public User() {
     }
@@ -72,5 +75,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }
