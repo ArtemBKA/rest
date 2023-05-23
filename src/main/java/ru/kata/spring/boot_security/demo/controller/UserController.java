@@ -17,7 +17,7 @@ public class UserController {
     @GetMapping("/")
     public String printUsers(ModelMap model) {
         model.addAttribute("userList", userService.userList());
-        return "index";
+        return "users";
     }
 
     @GetMapping("/new")
