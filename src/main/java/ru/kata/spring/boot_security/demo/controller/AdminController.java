@@ -44,12 +44,6 @@ public class AdminController {
         return "admin/edit";
     }
 
-//    @PostMapping
-//    public String saveUser(@ModelAttribute("user") User user) {
-//        userService.save(user);
-//        return "redirect:/admin";
-//    }
-
     @PostMapping("/save")
     public String saveUser(@ModelAttribute("user") User user) {
         userService.save(user);
