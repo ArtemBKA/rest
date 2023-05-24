@@ -6,6 +6,11 @@
 </head>
 <body>
 <div align="center">
+    <h3>
+        <a th:insert="logout">
+            <button type="submit" style="font-size: 1em; padding:3px 137px;">Logout</button>
+        </a>
+    </h3>
     <h2>User Manager</h2>
     <form method="get" action="search">
         <label>
@@ -28,13 +33,15 @@
             <th>Roles</th>
             <th>Action</th>
         </tr>
-        <tr align="center" th:each="user : ${userList}">
+<!--        <tr align="center" th:each="user : ${userList}">-->
+        <tr align="center" th:each="user : ${users}">
             <td th:text="${user.id}"></td>
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.age}"></td>
             <td th:text="${user.email}"></td>
-            <td th:text="${user.roles}"></td>
+            <td th:text="${#strings.listJoin(user.roles.![name],',')}">value</td>
+<!--            <td th:text="${user.roles}"></td>-->
             <td>
                 <a th:href="@{/edit(id=${user.id})}">
                     <button type="submit">Edit</button>
