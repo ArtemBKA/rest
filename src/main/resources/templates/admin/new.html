@@ -12,12 +12,12 @@
         </a>
     </h3>
     <h3>
-        <a th:href="@{/}">
+        <a th:href="@{/admin}">
             <button type="submit" style="font-size: 1em; padding:3px 137px;">Back</button>
         </a>
     </h3>
     <h2>New User</h2>
-    <form th:action="@{/save}" th:object="${user}" method="post">
+    <form th:action="@{/admin/save}" th:object="${user}" method="post">
         <table th:border="0" th:cellpadding="5">
             <tr>
                 <td>FirstName</td>
