@@ -32,7 +32,7 @@
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.age}"></td>
             <td th:text="${user.email}"></td>
-            <td th:text="${#strings.listJoin(user.roles.![name],',')}"></td>
+            <td th:text="${#strings.listJoin(user.roles.![name],' ')}"></td>
         </tr>
     </table>
 </div>
