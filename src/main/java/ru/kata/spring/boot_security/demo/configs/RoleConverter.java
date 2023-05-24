@@ -7,7 +7,6 @@ import ru.kata.spring.boot_security.demo.service.RoleService;
 
 @Component
 public class RoleConverter implements Converter<String, Role> {
-
     private final RoleService roleService;
 
     public RoleConverter(RoleService roleService) {

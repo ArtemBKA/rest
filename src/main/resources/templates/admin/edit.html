@@ -58,10 +58,10 @@
             <tr>
                 <td>Roles</td>
                 <td><label>
-                        <select th:field="*{roles}" multiple required>
-                            <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
-                        </select>
-                    </label></td>
+                    <select th:field="*{roles}" multiple required>
+                        <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}"></option>
+                    </select>
+                </label></td>
             </tr>
         </table>
         <input type="submit" style="font-size: 1em; padding:3px 96px;" value="Save">
