@@ -15,27 +15,39 @@
     <form th:action="@{/save}" th:object="${user}" method="post">
         <table th:border="0" th:cellpadding="5">
             <tr>
-                <td>FirstName:</td>
+                <td>FirstName</td>
                 <td><label>
                     <input th:field="*{firstName}"/>
                 </label></td>
             </tr>
             <tr>
-                <td>LastName:</td>
+                <td>LastName</td>
                 <td><label>
                     <input th:field="*{lastName}"/>
                 </label></td>
             </tr>
             <tr>
-                <td>Age:</td>
+                <td>Age</td>
                 <td><label>
                     <input type="number" th:field="*{age}"/>
                 </label></td>
             </tr>
             <tr>
-                <td>Email:</td>
+                <td>Email</td>
                 <td><label>
                     <input th:field="*{email}"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Password</td>
+                <td><label>
+                    <input th:field="*{password}"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Roles</td>
+                <td><label>
+                    <input th:field="*{roles}"/>
                 </label></td>
             </tr>
         </table>
