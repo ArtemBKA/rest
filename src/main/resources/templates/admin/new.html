@@ -51,9 +51,14 @@
             </tr>
             <tr>
                 <td>Roles</td>
-                <td><label>
-                    <input th:field="*{roles}"/>
-                </label></td>
+                <td>
+                    <th:block th:each="role: ${roles}">
+                        <label>
+                            <input type="checkbox" th:field="*{roles}"
+                                   th:text="${role.name}" th:value="${role.id}"/>
+                        </label>
+                    </th:block>
+                </td>
             </tr>
         </table>
         <input type="submit" style="font-size: 1em; padding:3px 96px;" value="Save">
