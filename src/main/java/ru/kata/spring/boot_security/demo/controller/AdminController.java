@@ -50,8 +50,8 @@ public class AdminController {
         return "redirect:/admin";
     }
 
-    @PatchMapping
-    public String update(@ModelAttribute("user") User user) {
+    @PatchMapping("/{id}")
+    public String updateUser(@ModelAttribute("user") User user) {
         userService.update(user);
         return "redirect:/admin";
     }
