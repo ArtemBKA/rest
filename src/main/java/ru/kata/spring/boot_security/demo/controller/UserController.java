@@ -16,7 +16,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/")
     public String readGet(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
         return "user/user";
