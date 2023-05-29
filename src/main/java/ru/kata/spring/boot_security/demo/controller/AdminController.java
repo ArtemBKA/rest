@@ -8,6 +8,7 @@ import ru.kata.spring.boot_security.demo.service.*;
 import org.springframework.stereotype.Controller;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
@@ -17,14 +18,14 @@ public class AdminController {
         this.roleService = roleService;
     }
 
-    @GetMapping("/admin")
+    @GetMapping
     public String index(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
         model.addAttribute("users", userService.userList());
         return "admin";
     }
 
-    @GetMapping("/admin/user")
+    @GetMapping("/user")
     public String showUserInfo(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
         return "userForAdmin";
