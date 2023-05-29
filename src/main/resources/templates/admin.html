@@ -107,27 +107,27 @@
                                                         <label for="name"><b>First name</b></label>
                                                         <input th:name="firstName" th:type="text"
                                                                class="form-control" id="name"
-                                                               th:value="${user.firstName}"/>
+                                                               th:value="${user.firstName}" required/>
                                                         <br>
                                                         <label for="lastName"><b>Last name</b></label>
                                                         <input th:name="lastName" th:type="text"
                                                                class="form-control" id="lastName"
-                                                               th:value="${user.lastName}"/>
+                                                               th:value="${user.lastName}" required/>
                                                         <br>
                                                         <label for="age"><b>Age</b></label>
                                                         <input th:name="age" th:type="number"
                                                                class="form-control" id="age"
-                                                               th:value="${user.age}"/>
+                                                               th:value="${user.age}" required/>
                                                         <br>
                                                         <label for="email"><b>Email</b></label>
                                                         <input th:name="email" th:type="text"
                                                                class="form-control" id="email"
-                                                               th:value="${user.email}"/>
+                                                               th:value="${user.email}" required/>
                                                         <br>
                                                         <label for="password"><b>Password</b></label>
                                                         <input th:name="password" type="password"
                                                                class="form-control" id="password"
-                                                               th:value="${user.password}"/>
+                                                               th:value="${user.password}" required/>
                                                         <br>
                                                         <label for="roleAdmin"><b>Role</b></label>
                                                         <select multiple class="form-control form-control-sm"
