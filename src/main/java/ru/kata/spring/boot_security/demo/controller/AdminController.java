@@ -48,36 +48,27 @@ public class AdminController {
         return "redirect:/admin";
     }
 
+    private Set<Role> getRoles(String roleAdmin) {
+        Set<Role> roles = new HashSet<>();
+        if (roleAdmin.equals("ADMIN") || roleAdmin.matches(".*\\bADMIN\\b.*")) {
+            roles.add(roleService.getRoleByName("ADMIN"));
+        }
+        if (roleAdmin.equals("USER") || roleAdmin.matches(".*\\bUSER\\b.*")) {
+            roles.add(roleService.getRoleByName("USER"));
+        }
+        return roles;
+    }
+
     @PostMapping("/save")
     public String addUser(@ModelAttribute("user") User user, @RequestParam String roleAdmin) {
-        Set<Role> roles = new HashSet<>();
-        if (roleAdmin.equals("ADMIN")) {
-            roles.add(roleService.getRoleByName("ADMIN"));
-        } else {
-            roles.add(roleService.getRoleByName("USER"));
-        }
-        if (roleAdmin.matches(".*\\bUSER\\b.*") && roleAdmin.matches(".*\\bADMIN\\b.*")) {
-            roles.add(roleService.getRoleByName("ADMIN"));
-            roles.add(roleService.getRoleByName("USER"));
-        }
-        user.setRoles(roles);
+        user.setRoles(getRoles(roleAdmin));
         userService.save(user);
         return "redirect:/admin";
     }
 
     @PatchMapping("/{id}/edit")
     public String editUser(@ModelAttribute("user") User user, @RequestParam(required = false) String roleAdmin) {
-        Set<Role> roles = new HashSet<>();
-        if (roleAdmin.equals("ADMIN")) {
-            roles.add(roleService.getRoleByName("ADMIN"));
-        } else {
-            roles.add(roleService.getRoleByName("USER"));
-        }
-        if (roleAdmin.matches(".*\\bUSER\\b.*") && roleAdmin.matches(".*\\bADMIN\\b.*")) {
-            roles.add(roleService.getRoleByName("ADMIN"));
-            roles.add(roleService.getRoleByName("USER"));
-        }
-        user.setRoles(roles);
+        user.setRoles(getRoles(roleAdmin));
         userService.update(user);
         return "redirect:/admin";
     }
