@@ -32,8 +32,7 @@ public class AdminController {
     }
 
     @GetMapping("/new")
-    public String newUser(Model model, Authentication authentication
-    ) {
+    public String newUser(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
         return "new";
     }
