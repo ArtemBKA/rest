@@ -66,9 +66,7 @@ public class AdminController {
     }
 
     @PatchMapping("/{id}/edit")
-    public String editUser(@ModelAttribute("user") User user,
-                           @RequestParam(required = false) String roleAdmin,
-                           @PathVariable("id") long id) {
+    public String editUser(@ModelAttribute("user") User user, @RequestParam(required = false) String roleAdmin) {
         Set<Role> roles = new HashSet<>();
         if (roleAdmin.equals("ADMIN")) {
             roles.add(roleService.getRoleByName("ADMIN"));
