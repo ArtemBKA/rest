@@ -14,5 +14,5 @@ public interface RoleService {
 
     Role getRoleByName(String name);
 
-    Set<Role> getRolesConvert(String roleAdmin);
+    Set<Role> getRoles(String role);
 }

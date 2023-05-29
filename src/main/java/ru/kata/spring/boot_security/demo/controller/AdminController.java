@@ -46,14 +46,14 @@ public class AdminController {
 
     @PostMapping("/save")
     public String addUser(@ModelAttribute("user") User user, @RequestParam String roleAdmin) {
-        user.setRoles(roleService.getRolesConvert(roleAdmin));
+        user.setRoles(roleService.getRoles(roleAdmin));
         userService.save(user);
         return "redirect:/admin";
     }
 
     @PatchMapping("/{id}/edit")
     public String editUser(@ModelAttribute("user") User user, @RequestParam(required = false) String roleAdmin) {
-        user.setRoles(roleService.getRolesConvert(roleAdmin));
+        user.setRoles(roleService.getRoles(roleAdmin));
         userService.update(user);
         return "redirect:/admin";
     }

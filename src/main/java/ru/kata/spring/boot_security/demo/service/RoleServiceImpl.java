@@ -42,8 +42,7 @@ public class RoleServiceImpl implements RoleService {
 
     @Transactional(readOnly = true)
     @Override
-    public Set<Role> getRolesConvert(String roleAdmin) {
-        return roleDao.getRolesConvert(roleAdmin);
+    public Set<Role> getRoles(String role) {
+        return roleDao.getRoles(role);
     }
-
 }

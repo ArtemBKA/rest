@@ -39,12 +39,12 @@ public class RoleDaoImpl implements RoleDao {
     }
 
     @Override
-    public Set<Role> getRolesConvert(String roleAdmin) {
+    public Set<Role> getRoles(String role) {
         Set<Role> roles = new HashSet<>();
-        if (roleAdmin.equals("ADMIN") || roleAdmin.matches(".*\\bADMIN\\b.*")) {
+        if (role.equals("ADMIN") || role.matches(".*\\bADMIN\\b.*")) {
             roles.add(getRoleByName("ADMIN"));
         }
-        if (roleAdmin.equals("USER") || roleAdmin.matches(".*\\bUSER\\b.*")) {
+        if (role.equals("USER") || role.matches(".*\\bUSER\\b.*")) {
             roles.add(getRoleByName("USER"));
         }
         return roles;
