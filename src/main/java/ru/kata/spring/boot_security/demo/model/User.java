@@ -91,7 +91,7 @@ public class User implements UserDetails {
     }
 
     public String getRolesToString() {
-        return roles.toString().replace("[],", "").replace("]","").replace(",","");
+        return roles.toString().replace("[],", "").replace("]", "").replace(",", "");
     }
 
     public void setRoles(Set<Role> roles) {
