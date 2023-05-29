@@ -32,4 +32,10 @@ public class RoleServiceImpl implements RoleService {
     public Role getRoleById(long id) {
         return roleDao.getRoleById(id);
     }
+
+    @Transactional(readOnly = true)
+    @Override
+    public Role getRoleByName(String name) {
+        return roleDao.getRoleByName(name);
+    }
 }

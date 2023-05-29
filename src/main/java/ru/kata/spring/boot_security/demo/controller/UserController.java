@@ -12,6 +12,6 @@ public class UserController {
     @GetMapping
     public String readGet(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
-        return "user/user";
+        return "user";
     }
 }
