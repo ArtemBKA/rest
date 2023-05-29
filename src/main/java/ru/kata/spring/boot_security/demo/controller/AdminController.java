@@ -42,9 +42,9 @@ public class AdminController {
         return "new";
     }
 
-    @PostMapping("/saves")
-    public String saveUser(@ModelAttribute("user") User user) {
-        userService.save(user);
+    @DeleteMapping("/{id}/delete")
+    public String deleteUser(@PathVariable("id") long id) {
+        userService.delete(id);
         return "redirect:/admin";
     }
 
@@ -81,12 +81,6 @@ public class AdminController {
         }
         user.setRoles(roles);
         userService.update(user);
-        return "redirect:/admin";
-    }
-
-    @DeleteMapping("/{id}/delete")
-    public String deleteUser(@PathVariable("id") long id) {
-        userService.delete(id);
         return "redirect:/admin";
     }
 }
