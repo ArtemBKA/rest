@@ -8,7 +8,6 @@ import ru.kata.spring.boot_security.demo.service.*;
 import org.springframework.stereotype.Controller;
 
 @Controller
-@RequestMapping()
 public class AdminController {
     private final UserService userService;
     private final RoleService roleService;
