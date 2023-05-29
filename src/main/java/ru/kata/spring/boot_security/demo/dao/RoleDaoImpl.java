@@ -5,7 +5,9 @@ import ru.kata.spring.boot_security.demo.model.Role;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Repository
 public class RoleDaoImpl implements RoleDao {
@@ -34,5 +36,17 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public Role getRoleByName(String name) {
         return entityManager.createQuery("from Role where name =:name", Role.class).setParameter("name", name).getSingleResult();
+    }
+
+    @Override
+    public Set<Role> getRolesConvert(String roleAdmin) {
+        Set<Role> roles = new HashSet<>();
+        if (roleAdmin.equals("ADMIN") || roleAdmin.matches(".*\\bADMIN\\b.*")) {
+            roles.add(getRoleByName("ADMIN"));
+        }
+        if (roleAdmin.equals("USER") || roleAdmin.matches(".*\\bUSER\\b.*")) {
+            roles.add(getRoleByName("USER"));
+        }
+        return roles;
     }
 }
