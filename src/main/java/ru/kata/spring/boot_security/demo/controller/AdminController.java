@@ -29,7 +29,7 @@ public class AdminController {
         return "admin";
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/admin/user")
     public String showUserInfo(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
         return "userForAdmin";
@@ -63,19 +63,6 @@ public class AdminController {
         user.setRoles(roles);
         userService.save(user);
         return "redirect:/admin";
-    }
-
-    @GetMapping("/edit")
-    public String newUser(Model model, @RequestParam("id") long id) {
-        model.addAttribute("roles", roleService.roleList());
-        model.addAttribute("user", userService.getUserById(id));
-        return "admin/edit";
-    }
-
-    @GetMapping(value = "admin/edit")
-    public String edit(@RequestParam(value = "id") Long id, Model model) {
-        model.addAttribute("user", userService.getUserById(id));
-        return "userForAdmin";
     }
 
     @PatchMapping("/{id}/edit")
