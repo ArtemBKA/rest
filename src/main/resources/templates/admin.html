@@ -129,15 +129,14 @@
                                                                class="form-control" id="password"
                                                                th:value="${user.password}" required/>
                                                         <br>
-                                                        <label for="roleAdmin"><b>Role</b></label>
+                                                        <label for="role"><b>Role</b></label>
                                                         <select multiple class="form-control form-control-sm"
-                                                                id="roleAdmin" name="roleAdmin" size="2"
+                                                                id="role" name="role" size="2"
                                                                 required>
-                                                            <option th:value="ADMIN"
-                                                                    th:checked="user.roles"
-                                                                    th:text="ADMIN"></option>
-                                                            <option th:value="USER" th:checked="user.roles"
-                                                                    th:text="USER"></option>
+                                                            <option th:each="role : ${roles}"
+                                                                    th:selected="${user.getRoles().contains(role)}"
+                                                                    th:name="${role}"
+                                                                    th:text="${role}"></option>
                                                         </select>
                                                     </div>
                                                     <div class="modal-footer">
@@ -195,7 +194,8 @@
                                                         <label for="role1"><b>Role</b></label>
                                                         <input th:name="role1" th:type="text"
                                                                class="form-control"
-                                                               id="role1" th:value="${user.getRolesToString()}" disabled/>
+                                                               id="role1" th:value="${user.getRolesToString()}"
+                                                               disabled/>
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary"

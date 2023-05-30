@@ -22,6 +22,7 @@ public class AdminController {
     public String index(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
         model.addAttribute("users", userService.userList());
+        model.addAttribute("roles", roleService.roleList());
         return "admin";
     }
 
@@ -44,15 +45,15 @@ public class AdminController {
     }
 
     @PostMapping("/save")
-    public String addUser(@ModelAttribute("user") User user, @RequestParam String roleAdmin) {
-        user.setRoles(roleService.getRoles(roleAdmin));
+    public String addUser(@ModelAttribute("user") User user, @RequestParam String role) {
+        user.setRoles(roleService.getRoles(role));
         userService.save(user);
         return "redirect:/admin";
     }
 
     @PatchMapping("/{id}/edit")
-    public String editUser(@ModelAttribute("user") User user, @RequestParam(required = false) String roleAdmin) {
-        user.setRoles(roleService.getRoles(roleAdmin));
+    public String editUser(@ModelAttribute("user") User user, @RequestParam(required = false) String role) {
+        user.setRoles(roleService.getRoles(role));
         userService.update(user);
         return "redirect:/admin";
     }

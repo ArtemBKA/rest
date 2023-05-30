@@ -80,8 +80,8 @@
                             <input th:name="password" th:type="password" class="form-control"
                                    id="password" placeholder="Password" required>
                         </div>
-                        <label for="roleAdmin"><b>Role</b></label>
-                        <select multiple class="form-control form-control-sm" id="roleAdmin" name="roleAdmin" size="2"
+                        <label for="role"><b>Role</b></label>
+                        <select multiple class="form-control form-control-sm" id="role" name="role" size="2"
                                 required>
                             <option th:value="ADMIN" th:checked="user.roles" th:text="ADMIN"></option>
                             <option th:value="USER" th:checked="user.roles" th:text="USER"></option>
