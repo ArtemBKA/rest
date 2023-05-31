@@ -6,6 +6,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -18,18 +20,17 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
-                .antMatchers("/user").hasAnyAuthority("ADMIN", "USER")
-                .antMatchers("/admin/**").hasAuthority("ADMIN")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin()
-                .successHandler(successUserHandler)
-                .permitAll()
-                .and()
-                .logout()
-                .permitAll();
+        http.csrf().disable();
+        CharacterEncodingFilter filter = new CharacterEncodingFilter();
+        filter.setEncoding("UTF-8");
+        filter.setForceEncoding(true);
+        http.addFilterBefore(filter, CsrfFilter.class);
+        http.authorizeRequests()
+                .antMatchers("/*").permitAll()
+                .antMatchers("/users").access("hasAnyRole('USER', 'ADMIN')")
+                .antMatchers("/api/users/**").access("hasRole('ADMIN')")
+                .and().formLogin()
+                .successHandler(successUserHandler);
     }
 
     @Bean
