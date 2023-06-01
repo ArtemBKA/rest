@@ -114,12 +114,13 @@ on(document, 'click', '.btnEdit', e => {
     const lastNameForm = row.children[2].innerHTML;
     const ageForm = row.children[3].innerHTML;
     const emailForm = row.children[4].innerHTML;
+    const passwordForm = row.children[5].innerHTML;
     editId.value = idForm;
     editFirstName.value = firstNameForm;
     editLastName.value = lastNameForm;
     editAge.value = ageForm;
     editEmail.value = emailForm;
-    editPassword.value = ''
+    editPassword.value = passwordForm;
     editRoles.options.selectedIndex = -1;
     editUserModal.show();
 })
