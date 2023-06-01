@@ -40,8 +40,7 @@ public class AdminController {
     }
 
     @PatchMapping("/users/{id}")
-    public ResponseEntity<?> update(@RequestBody User user, @PathVariable("id") long id) {
-            User thisUser = userService.getUserById(id);
+    public ResponseEntity<?> update(@RequestBody User user) {
             userService.update(user);
             return new ResponseEntity<>(HttpStatus.OK);
     }
