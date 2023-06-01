@@ -44,7 +44,7 @@ const renderUsers = (users) => {
                 <td>${user.lastName}</td>
                 <td>${user.age}</td>
                 <td>${user.email}</td>
-                <td>${user.password}</td>
+                <td hidden>${user.password}</td>
                 <td>
                  ${roles}
                 </td>
