@@ -1,5 +1,5 @@
-const url = 'http://localhost:8080/api/users/';
-const urlRoles = 'http://localhost:8080/api/roles/';
+const url = 'http://localhost:8080/admin/users/';
+const urlRoles = 'http://localhost:8080/admin/roles/';
 const container = document.querySelector('.usersTbody');
 const newUserForm = document.getElementById('newUserForm');
 const editUserForm = document.getElementById('editUserForm');
