@@ -41,11 +41,11 @@ public class RoleDaoImpl implements RoleDao {
     @Override
     public Set<Role> getRoles(String role) {
         Set<Role> roles = new HashSet<>();
-        if (role.equals("ADMIN") || role.matches(".*\\bADMIN\\b.*")) {
-            roles.add(getRoleByName("ADMIN"));
+        if (role.equals("ROLE_ADMIN") || role.matches(".*\\bROLE_ADMIN\\b.*")) {
+            roles.add(getRoleByName("ROLE_ADMIN"));
         }
-        if (role.equals("USER") || role.matches(".*\\bUSER\\b.*")) {
-            roles.add(getRoleByName("USER"));
+        if (role.equals("ROLE_USER") || role.matches(".*\\bROLE_USER\\b.*")) {
+            roles.add(getRoleByName("ROLE_USER"));
         }
         return roles;
     }
