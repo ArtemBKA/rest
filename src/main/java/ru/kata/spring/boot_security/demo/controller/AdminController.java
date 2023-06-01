@@ -27,8 +27,7 @@ public class AdminController {
 
     @GetMapping("/users/{id}")
     public ResponseEntity<User> getUser(@PathVariable(name ="id") long id) {
-            User user = userService.getUserById(id);
-            return new ResponseEntity<>(user, HttpStatus.OK);
+            return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
     }
 
     @PostMapping("/users")
