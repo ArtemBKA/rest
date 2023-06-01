@@ -14,7 +14,9 @@
      style="height: 3rem">
     <div class="navbar-brand col-sm-4 col-md-3 px-3 mt-0"><b th:text="${user.email}"></b>
         <span>with roles: </span>
-        <span th:each="role : ${user.getRoles()}" th:text="${role.getName} + ' '"></span>
+        <span th:each="role : ${user.getRoles()}"
+              th:text="${role.name.substring(5)} + ' '">role
+        </span>
     </div>
     <ul class="navbar-nav px-3">
         <li class="nav-item text-nowrap">
@@ -298,7 +300,7 @@
                                                 <td th:text="${user.getEmail()}">Email</td>
                                                 <td>
                                                     <span th:each="role : ${user.getRoles()}"
-                                                          th:text="${role.getName} + ' '">role
+                                                          th:text="${role.name.substring(5)} + ' '">role
                                                     </span>
                                                 </td>
                                             </tr>
