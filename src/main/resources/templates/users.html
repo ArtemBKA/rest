@@ -26,11 +26,11 @@
     <div class="d-flex align-items-start">
         <div class="nav fixed-top mt-5 pt-3 col-2 flex-column nav-pills me-3" id="v-pills-tab" role="tablist"
              aria-orientation="vertical">
-            <button sec:authorize="hasAuthority('ADMIN')" class="ddpills nav-link text-start" id="admin-page-btn"
+            <button sec:authorize="hasAuthority('ROLE_ADMIN')" class="ddpills nav-link text-start" id="admin-page-btn"
                     data-bs-toggle="pill" data-bs-target="#v-pills-admin-page"
                     type="button" role="tab" aria-controls="v-pills-admin-page" aria-selected="true">Admin
             </button>
-            <button sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="ddpills nav-link text-start"
+            <button sec:authorize="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')" class="ddpills nav-link text-start"
                     id="user-page-btn"
                     data-bs-toggle="pill" data-bs-target="#v-pills-user-page"
                     type="button" role="tab" aria-controls="v-pills-user-page" aria-selected="false">User
@@ -39,7 +39,7 @@
         <div class="col-2"></div>
         <div class="container mt-5" style="background-color: #f5f5f5;">
             <div class="tab-content" id="v-pills-tabContent">
-                <div sec:authorize="hasAuthority('ADMIN')" class="ddtabs tab-pane fade" id="v-pills-admin-page"
+                <div sec:authorize="hasAuthority('ROLE_ADMIN')" class="ddtabs tab-pane fade" id="v-pills-admin-page"
                      role="tabpanel"
                      aria-labelledby="v-pills-admin-page">
                     <main id="admin-page" role="main" class="ml-sm-auto ms-auto">
@@ -264,7 +264,7 @@
                         </div>
                     </main>
                 </div>
-                <div sec:authorize="hasAnyAuthority('USER', 'ADMIN')" class="ddtabs tab-pane fade"
+                <div sec:authorize="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')" class="ddtabs tab-pane fade"
                      id="v-pills-user-page"
                      role="tabpanel" aria-labelledby="v-pills-user-page">
                     <main id="user-page" role="main" class="ml-sm-auto ms-auto">
@@ -315,7 +315,7 @@
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-<script sec:authorize="hasAuthority('ADMIN')" type="text/javascript" src="../static/admin.js"
+<script sec:authorize="hasAuthority('ROLE_ADMIN')" type="text/javascript" src="../static/admin.js"
         th:src="@{/admin.js}"></script>
 <script type="text/javascript" src="../static/active_button.js" th:src="@{/active_button.js}"></script>
 </body>

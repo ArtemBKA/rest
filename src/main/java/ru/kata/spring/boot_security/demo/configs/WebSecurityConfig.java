@@ -27,8 +27,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(filter, CsrfFilter.class);
         http.authorizeRequests()
                 .antMatchers("/*").permitAll()
-                .antMatchers("/users").access("hasAnyRole('USER', 'ADMIN')")
-                .antMatchers("/api/users/**").access("hasRole('ADMIN')")
+                .antMatchers("/users").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+                .antMatchers("/api/users/**").access("hasRole('ROLE_ADMIN')")
                 .and().formLogin()
                 .successHandler(successUserHandler);
     }
