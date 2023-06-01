@@ -7,6 +7,7 @@ import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
+
 import java.util.List;
 
 @RestController
@@ -22,39 +23,39 @@ public class AdminController {
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
-        return new ResponseEntity<>(userService.userList(), HttpStatus.OK);
+        return ResponseEntity.ok(userService.userList());
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUser(@PathVariable(name ="id") long id) {
-            return new ResponseEntity<>(userService.getUserById(id), HttpStatus.OK);
+    public ResponseEntity<User> getUser(@PathVariable long id) {
+        return ResponseEntity.ok(userService.getUserById(id));
     }
 
     @PostMapping("/users")
     public ResponseEntity<User> addNewUser(@RequestBody User user) {
         userService.save(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return ResponseEntity.status(HttpStatus.CREATED).body(user);
     }
 
     @PatchMapping("/users/{id}")
-    public ResponseEntity<?> update(@RequestBody User user) {
-            userService.update(user);
-            return new ResponseEntity<>(HttpStatus.OK);
+    public ResponseEntity<Void> update(@RequestBody User user) {
+        userService.update(user);
+        return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/users/{id}")
-    public ResponseEntity<User> delete(@PathVariable("id") long id) {
+    public ResponseEntity<Void> delete(@PathVariable long id) {
         userService.delete(id);
-        return new ResponseEntity<>(HttpStatus.OK);
+        return ResponseEntity.ok().build();
     }
 
     @GetMapping("/roles")
-    ResponseEntity<List<Role>>getAllRoles(){
-        return new ResponseEntity<>(roleService.roleList(), HttpStatus.OK);
+    public ResponseEntity<List<Role>> getAllRoles() {
+        return ResponseEntity.ok(roleService.roleList());
     }
 
     @GetMapping("/roles/{id}")
-    ResponseEntity<Role> getRoleById(@PathVariable("id") long id){
-        return new ResponseEntity<>(roleService.getRoleById(id), HttpStatus.OK);
+    public ResponseEntity<Role> getRoleById(@PathVariable long id) {
+        return ResponseEntity.ok(roleService.getRoleById(id));
     }
 }

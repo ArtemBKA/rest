@@ -100,11 +100,13 @@ on(document, 'click', '.btnDelete', e => {
     const lastNameForm = row.children[2].innerHTML;
     const ageForm = row.children[3].innerHTML;
     const emailForm = row.children[4].innerHTML;
+    const rolesForm = row.children[6].innerHTML;
     delId.value = idForm;
     delFirstName.value = firstNameForm;
     delLastName.value = lastNameForm;
     delAge.value = ageForm;
     delEmail.value = emailForm;
+    delRoles.value = rolesForm;
     deleteUserModal.show();
 })
 let idForm = 0;

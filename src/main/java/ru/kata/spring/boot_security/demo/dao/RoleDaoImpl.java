@@ -5,18 +5,15 @@ import ru.kata.spring.boot_security.demo.model.Role;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 @Repository
 public class RoleDaoImpl implements RoleDao {
-    private EntityManager entityManager;
-
     @PersistenceContext
-    public void setEntityManager(EntityManager entityManager) {
-        this.entityManager = entityManager;
-    }
+    private EntityManager entityManager;
 
     @Override
     public void save(Role role) {
@@ -30,21 +27,25 @@ public class RoleDaoImpl implements RoleDao {
 
     @Override
     public Role getRoleById(long id) {
-        return entityManager.createQuery("from Role where id =:id", Role.class).setParameter("id", id).getSingleResult();
+        TypedQuery<Role> query = entityManager.createQuery("from Role where id =:id", Role.class);
+        query.setParameter("id", id);
+        return query.getSingleResult();
     }
 
     @Override
     public Role getRoleByName(String name) {
-        return entityManager.createQuery("from Role where name =:name", Role.class).setParameter("name", name).getSingleResult();
+        TypedQuery<Role> query = entityManager.createQuery("from Role where name = :name", Role.class);
+        query.setParameter("name", name);
+        return query.getSingleResult();
     }
 
     @Override
     public Set<Role> getRoles(String role) {
         Set<Role> roles = new HashSet<>();
-        if (role.equals("ROLE_ADMIN") || role.matches(".*\\bROLE_ADMIN\\b.*")) {
+        if (role.matches(".*\\bROLE_ADMIN\\b.*")) {
             roles.add(getRoleByName("ROLE_ADMIN"));
         }
-        if (role.equals("ROLE_USER") || role.matches(".*\\bROLE_USER\\b.*")) {
+        if (role.matches(".*\\bROLE_USER\\b.*")) {
             roles.add(getRoleByName("ROLE_USER"));
         }
         return roles;
