@@ -290,16 +290,8 @@
                                                 <th>Role</th>
                                             </tr>
                                             </thead>
-                                            <div sec:authorize="hasAuthority('ROLE_USER')" class="ddtabs tab-pane fade"
-                                                 id="a-v-pills-user-page"
-                                                 role="tabpanel" aria-labelledby="v-pills-user-page">
-                                            <tbody id="UserInfo"></tbody>
-                                            </div>
-                                            <div sec:authorize="hasAuthority('ROLE_ADMIN')" class="ddtabs tab-pane fade"
-                                                 id="u-v-pills-user-page"
-                                                 role="tabpanel" aria-labelledby="v-pills-user-page">
-                                                <tbody id="AdminInfo"></tbody>
-                                            </div>
+                                            <tbody sec:authorize="hasAuthority('ROLE_USER')" id="UserInfo"></tbody>
+                                            <tbody sec:authorize="hasAuthority('ROLE_ADMIN')" id="AdminInfo"></tbody>
                                         </table>
                                     </div>
                                 </div>
