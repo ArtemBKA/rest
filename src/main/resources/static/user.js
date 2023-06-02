@@ -10,6 +10,6 @@ fetch(urlUser)
                                 <td>${data.lastName}</td>
                                 <td>${data.age}</td>
                                 <td>${data.email}</td>
-                                <<td>${data.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN').join(' ')}</td>
+                                <td>${data.roles.map(role => role.name === 'ROLE_USER' ? 'USER' : 'ADMIN').join(' ')}</td>
                                 `;
     })
