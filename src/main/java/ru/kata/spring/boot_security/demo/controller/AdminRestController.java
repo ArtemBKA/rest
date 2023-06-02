@@ -8,6 +8,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
+import java.security.Principal;
 import java.util.List;
 import java.util.Optional;
 
@@ -30,6 +31,11 @@ public class AdminRestController {
     @GetMapping("/users/{id}")
     public ResponseEntity<Optional<User>> getUser(@PathVariable long id) {
         return ResponseEntity.ok(userService.getUserById(id));
+    }
+
+    @GetMapping("/info")
+    public User oneUser(Principal principal) {
+        return (User) userService.loadUserByUsername(principal.getName());
     }
 
     @PostMapping("/users")
