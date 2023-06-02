@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api")
-public class MyRestController {
+@RequestMapping("/admin")
+public class AdminRestController {
     private final RoleService roleService;
     private final UserService userService;
 
-    public MyRestController(RoleService roleService, UserService userService) {
+    public AdminRestController(RoleService roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
     }
