@@ -4,52 +4,53 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import ru.kata.spring.boot_security.demo.dao.UserDao;
 import ru.kata.spring.boot_security.demo.model.User;
+import ru.kata.spring.boot_security.demo.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
-    private final UserDao userDao;
+    private final UserRepository userRepository;
 
-    public UserServiceImpl(UserDao userDao) {
-        this.userDao = userDao;
+    public UserServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Transactional
     @Override
     public void save(User user) {
-        userDao.save(user);
+        userRepository.save(user);
     }
 
     @Transactional
     @Override
     public void update(User user) {
-        userDao.update(user);
+        userRepository.save(user);
     }
 
     @Transactional
     @Override
     public void delete(long id) {
-        userDao.delete(id);
+        userRepository.deleteById(id);
     }
 
     @Transactional(readOnly = true)
     @Override
-    public User getUserById(long id) {
-        return userDao.getUserById(id);
+    public Optional<User> getUserById(long id) {
+        return userRepository.findById(id);
     }
 
     @Transactional(readOnly = true)
     @Override
     public List<User> userList() {
-        return userDao.userList();
+        return userRepository.findAll();
     }
 
     @Transactional(readOnly = true)
     @Override
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return userDao.getUserByName(username);
+    public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
+        return userRepository.findByEmail(email);
     }
 }

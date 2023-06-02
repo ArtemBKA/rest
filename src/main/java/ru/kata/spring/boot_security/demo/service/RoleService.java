@@ -3,10 +3,10 @@ package ru.kata.spring.boot_security.demo.service;
 import ru.kata.spring.boot_security.demo.model.Role;
 
 import java.util.List;
-import java.util.Set;
+import java.util.Optional;
 
 public interface RoleService {
     List<Role> roleList();
 
-    Role getRoleById(long id);
+    Optional<Role> getRoleById(long id);
 }

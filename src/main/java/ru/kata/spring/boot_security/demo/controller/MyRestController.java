@@ -9,14 +9,15 @@ import ru.kata.spring.boot_security.demo.service.RoleService;
 import ru.kata.spring.boot_security.demo.service.UserService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/admin")
-public class AdminController {
+@RequestMapping("/api")
+public class MyRestController {
     private final RoleService roleService;
     private final UserService userService;
 
-    public AdminController(RoleService roleService, UserService userService) {
+    public MyRestController(RoleService roleService, UserService userService) {
         this.roleService = roleService;
         this.userService = userService;
     }
@@ -27,7 +28,7 @@ public class AdminController {
     }
 
     @GetMapping("/users/{id}")
-    public ResponseEntity<User> getUser(@PathVariable long id) {
+    public ResponseEntity<Optional<User>> getUser(@PathVariable long id) {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
@@ -55,7 +56,7 @@ public class AdminController {
     }
 
     @GetMapping("/roles/{id}")
-    public ResponseEntity<Role> getRoleById(@PathVariable long id) {
+    public ResponseEntity<Optional<Role>> getRoleById(@PathVariable long id) {
         return ResponseEntity.ok(roleService.getRoleById(id));
     }
 }

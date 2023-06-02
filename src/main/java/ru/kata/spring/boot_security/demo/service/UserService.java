@@ -4,6 +4,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import ru.kata.spring.boot_security.demo.model.User;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService extends UserDetailsService {
     void save(User user);
@@ -12,7 +13,7 @@ public interface UserService extends UserDetailsService {
 
     void delete(long id);
 
-    User getUserById(long id);
+    Optional<User> getUserById(long id);
 
     List<User> userList();
 }
