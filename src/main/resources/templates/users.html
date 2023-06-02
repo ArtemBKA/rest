@@ -306,8 +306,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
 <script sec:authorize="hasAuthority('ROLE_ADMIN')" type="text/javascript" src="../static/admin.js"
         th:src="@{/admin.js}"></script>
-<script sec:authorize="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')" type="text/javascript" src="../static/info.js"
-        th:src="@{/info.js}"></script>
+<script sec:authorize="hasAnyAuthority('ROLE_USER', 'ROLE_ADMIN')" type="text/javascript" src="../static/user.js"
+        th:src="@{/user.js}"></script>
 <script type="text/javascript" src="../static/button.js" th:src="@{/button.js}"></script>
 </body>
 </html>
