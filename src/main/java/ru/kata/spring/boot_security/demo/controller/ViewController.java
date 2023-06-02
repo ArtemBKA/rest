@@ -6,12 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class LoginController {
-    @GetMapping("/")
-    public String rootBoot() {
-        return "redirect:/login";
-    }
-
+public class ViewController {
     @GetMapping("/users")
     public String readGet(Model model, Authentication authentication) {
         model.addAttribute("user", authentication.getPrincipal());
