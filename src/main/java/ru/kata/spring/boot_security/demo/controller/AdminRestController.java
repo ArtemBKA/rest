@@ -2,6 +2,7 @@ package ru.kata.spring.boot_security.demo.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import ru.kata.spring.boot_security.demo.model.Role;
 import ru.kata.spring.boot_security.demo.model.User;
@@ -34,8 +35,8 @@ public class AdminRestController {
     }
 
     @GetMapping("/info")
-    public User oneUser(Principal principal) {
-        return (User) userService.loadUserByUsername(principal.getName());
+    public ResponseEntity<UserDetails> oneUser(Principal principal) {
+        return ResponseEntity.ok(userService.loadUserByUsername(principal.getName()));
     }
 
     @PostMapping("/users")

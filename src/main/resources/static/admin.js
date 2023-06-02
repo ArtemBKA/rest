@@ -76,7 +76,7 @@ on(document, 'click', '.btnDelete', e => {
     const row = e.target.parentNode.parentNode;
     const idForm = row.children[0].innerHTML;
     [delFirstName.value, delLastName.value, delAge.value, delEmail.value, delRoles.value] =
-        [1, 2, 3, 4, 6].map(i => row.children[i].innerHTML);
+        [1, 2, 3, 4, 5].map(i => row.children[i].innerHTML);
     delId.value = idForm;
     deleteUserModal.show();
 })
