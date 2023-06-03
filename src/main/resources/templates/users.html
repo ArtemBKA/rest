@@ -10,8 +10,7 @@
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
-<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow"
-     style="height: 3rem">
+<nav class="navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow" style="height: 3rem">
     <div class="navbar-brand col-sm-4 col-md-3 px-3 mt-0"><b th:text="${user.email}"></b>
         <span>with roles: </span>
         <span th:each="role : ${user.getRoles()}"
