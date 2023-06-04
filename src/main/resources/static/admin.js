@@ -59,6 +59,7 @@ const renderUsers = (users) => {
                 <td>${roles}</td>
                 <td><a class="btnEdit btn btn-sm btn-info text-white">Edit</a></td>
                 <td><a class="btnDelete btn btn-danger btn-sm">Delete</a></td>
+                <td hidden></td>
             </tr>`;
     }, '');
 }
@@ -83,8 +84,8 @@ on(document, 'click', '.btnDelete', e => {
 on(document, 'click', '.btnEdit', e => {
     const row = e.target.parentNode.parentNode;
     const idForm = row.children[0].innerHTML;
-    [editFirstName.value, editLastName.value, editAge.value, editEmail.value] =
-        [1, 2, 3, 4].map(i => row.children[i].innerHTML);
+    [editFirstName.value, editLastName.value, editAge.value, editEmail.value, editPassword.value] =
+        [1, 2, 3, 4, 8].map(i => row.children[i].innerHTML);
     editId.value = idForm;
     editRoles.options.selectedIndex = -1;
     editUserModal.show();

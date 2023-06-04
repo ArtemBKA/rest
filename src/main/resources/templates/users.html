@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-<html lang="ru" xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="ru" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -48,19 +48,21 @@
                                 <nav>
                                     <div class="nav nav-tabs" id="myTab" role="tablist">
                                         <button class="nav-link active" id="all-users-tab" data-bs-toggle="tab"
-                                                data-bs-target="#all-users" type="button"
-                                                role="tab" aria-controls="home" aria-selected="true">Users table
+                                                data-bs-target="#all-users" type="button" role="tab"
+                                                aria-controls="home" aria-selected="true">Users table
                                         </button>
                                         <button class="nav-link" id="new-user-tab" data-bs-toggle="tab"
-                                                data-bs-target="#new-user" type="button"
-                                                role="tab" aria-controls="profile" aria-selected="false">New User
+                                                data-bs-target="#new-user" type="button" role="tab"
+                                                aria-controls="profile" aria-selected="false">New User
                                         </button>
                                     </div>
                                 </nav>
                                 <div class="tab-content" id="myTabContent">
                                     <div class="tab-pane fade show active" id="all-users" role="tabpanel"
                                          aria-labelledby="all-users-tab">
-                                        <div class="container py-1"><h5>All users</h5></div>
+                                        <div class="container py-1">
+                                            <h5>All users</h5>
+                                        </div>
                                         <div class="container">
                                             <div class="table-responsive">
                                                 <table id="allUsers" class="table mt-2 border-top table-striped">
@@ -76,8 +78,7 @@
                                                         <th>Delete</th>
                                                     </tr>
                                                     </thead>
-                                                    <tbody class="usersTbody">
-                                                    </tbody>
+                                                    <tbody class="usersTbody"></tbody>
                                                 </table>
                                             </div>
                                         </div>
@@ -96,37 +97,32 @@
                                                                    id="newFirstName" placeholder="First name">
                                                         </div>
                                                         <div>
-                                                            <label for="newLastName"
-                                                                   class="fw-bold pb-0 pt-2">Last name</label>
+                                                            <label for="newLastName" class="fw-bold pb-0 pt-2">Last
+                                                                name</label>
                                                             <input class="form-control" required type="text"
                                                                    id="newLastName" placeholder="Last name">
                                                         </div>
                                                         <div>
-                                                            <label class="fw-bold pb-0 pt-2"
-                                                                   for="newAge">Age</label>
+                                                            <label class="fw-bold pb-0 pt-2" for="newAge">Age</label>
                                                             <input class="form-control" required type="number"
-                                                                   id="newAge"
-                                                                   placeholder="Age">
+                                                                   id="newAge" placeholder="Age">
                                                         </div>
                                                         <div>
                                                             <label class="fw-bold pb-0 pt-2"
                                                                    for="newEmail">Email</label>
                                                             <input class="form-control" required type="email"
-                                                                   id="newEmail"
-                                                                   placeholder="Email">
+                                                                   id="newEmail" placeholder="Email">
                                                         </div>
                                                         <div>
                                                             <label class="fw-bold pb-0 pt-2"
                                                                    for="newPassword">Password</label>
                                                             <input class="form-control" required type="password"
-                                                                   id="newPassword"
-                                                                   placeholder="Password">
+                                                                   id="newPassword" placeholder="Password">
                                                         </div>
                                                         <div>
                                                             <label class="fw-bold pb-0 pt-2" for="newRoles">Role</label>
                                                             <select class="form-control" id="newRoles" size="2" multiple
-                                                                    required name="selectedRoles">
-                                                            </select>
+                                                                    required name="selectedRoles"></select>
                                                         </div>
                                                         <div class="gap-2 d-md-flex justify-content-center mt-3">
                                                             <button class="btn btn-success btn-sm" type="submit">Add New
@@ -140,8 +136,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="modal fade" id="editUserModal" tabindex="-1"
-                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="editUserModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                                 aria-hidden="true">
                                 <form id="editUserForm">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
@@ -157,16 +153,16 @@
                                                            name="id">
                                                 </div>
                                                 <div>
-                                                    <label for="editFirstName"
-                                                           class="fw-bold pb-0 pt-2">First name</label>
-                                                    <input required type="text" class="form-control"
-                                                           id="editFirstName" name="firstName">
+                                                    <label for="editFirstName" class="fw-bold pb-0 pt-2">First
+                                                        name</label>
+                                                    <input required type="text" class="form-control" id="editFirstName"
+                                                           name="firstName">
                                                 </div>
                                                 <div>
-                                                    <label for="editLastName"
-                                                           class="fw-bold pb-0 pt-2">Last name</label>
-                                                    <input required type="text" class="form-control"
-                                                           id="editLastName" name="lastName">
+                                                    <label for="editLastName" class="fw-bold pb-0 pt-2">Last
+                                                        name</label>
+                                                    <input required type="text" class="form-control" id="editLastName"
+                                                           name="lastName">
                                                 </div>
                                                 <div>
                                                     <label for="editAge" class="fw-bold pb-0 pt-2">Age</label>
@@ -179,16 +175,14 @@
                                                            name="email">
                                                 </div>
                                                 <div>
-                                                    <label for="editPassword"
-                                                           class="fw-bold pb-0 pt-2">Password</label>
-                                                    <input type="password" class="form-control"
-                                                           id="editPassword" name="password" placeholder="New password">
+                                                    <label for="editPassword" class="fw-bold pb-0 pt-2">Password</label>
+                                                    <input type="password" class="form-control" id="editPassword"
+                                                           name="password" placeholder="New password">
                                                 </div>
                                                 <div>
                                                     <label for="editRoles" class="fw-bold pb-0 pt-2">Role</label>
                                                     <select required class="form-control" id="editRoles" multiple
-                                                            name="selectedRoles" size="2">
-                                                    </select>
+                                                            name="selectedRoles" size="2"></select>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -201,15 +195,13 @@
                                     </div>
                                 </form>
                             </div>
-                            <div class="modal fade" id="deleteUserModal"
-                                 tabindex="-1" aria-labelledby="staticBackdropLabel"
-                                 aria-hidden="true">
+                            <div class="modal fade" id="deleteUserModal" tabindex="-1"
+                                 aria-labelledby="staticBackdropLabel" aria-hidden="true">
                                 <form id="deleteUserForm">
                                     <div class="modal-dialog">
                                         <div class="modal-content">
                                             <div class="modal-header">
-                                                <h5 class="modal-title" id="staticBackdropLabel">Delete
-                                                    User</h5>
+                                                <h5 class="modal-title" id="staticBackdropLabel">Delete User</h5>
                                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                         aria-label="Close"></button>
                                             </div>
@@ -220,31 +212,30 @@
                                                            name="id">
                                                 </div>
                                                 <div>
-                                                    <label for="delFirstName"
-                                                           class="fw-bold pb-0 pt-2">First name</label>
-                                                    <input readonly type="text" class="form-control"
-                                                           id="delFirstName" name="firstName">
+                                                    <label for="delFirstName" class="fw-bold pb-0 pt-2">First
+                                                        name</label>
+                                                    <input readonly type="text" class="form-control" id="delFirstName"
+                                                           name="firstName">
                                                 </div>
                                                 <div>
-                                                    <label for="delLastName"
-                                                           class="fw-bold pb-0 pt-2">Last name</label>
-                                                    <input readonly type="text" class="form-control"
-                                                           id="delLastName" name="lastName">
+                                                    <label for="delLastName" class="fw-bold pb-0 pt-2">Last name</label>
+                                                    <input readonly type="text" class="form-control" id="delLastName"
+                                                           name="lastName">
                                                 </div>
                                                 <div>
                                                     <label for="delAge" class="fw-bold pb-0 pt-2">Age</label>
-                                                    <input readonly type="text" class="form-control"
-                                                           id="delAge" name="age">
+                                                    <input readonly type="text" class="form-control" id="delAge"
+                                                           name="age">
                                                 </div>
                                                 <div>
                                                     <label for="delEmail" class="fw-bold pb-0 pt-2">Email</label>
-                                                    <input readonly type="email" class="form-control"
-                                                           id="delEmail" name="email">
+                                                    <input readonly type="email" class="form-control" id="delEmail"
+                                                           name="email">
                                                 </div>
                                                 <div>
                                                     <label for="delRoles" class="fw-bold pb-0 pt-2">Role</label>
-                                                    <input readonly type="text" class="form-control"
-                                                           id="delRoles" name="selectedRoles">
+                                                    <input readonly type="text" class="form-control" id="delRoles"
+                                                           name="selectedRoles">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -260,9 +251,8 @@
                         </div>
                     </main>
                 </div>
-                <div class="ddtabs tab-pane fade"
-                     id="v-pills-user-page"
-                     role="tabpanel" aria-labelledby="v-pills-user-page">
+                <div class="ddtabs tab-pane fade" id="v-pills-user-page" role="tabpanel"
+                     aria-labelledby="v-pills-user-page">
                     <main id="user-page" role="main" class="ml-sm-auto ms-auto">
                         <div class="d-flex mx-10 px-10 py-0 bd-highlight">
                             <div class="container pt-2" style="background-color: #f5f5f5;">
