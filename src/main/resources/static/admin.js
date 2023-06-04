@@ -43,7 +43,7 @@ const on = (element, event, selector, handler) => {
 }
 
 const renderUsers = (users) => {
-    let result = users.reduce((acc, user) => {
+    container.innerHTML = users.reduce((acc, user) => {
         let roles = '';
         user.roles.forEach(role => {
             const r = role.name.substring(5);
@@ -61,7 +61,6 @@ const renderUsers = (users) => {
                 <td><a class="btnDelete btn btn-danger btn-sm">Delete</a></td>
             </tr>`;
     }, '');
-    container.innerHTML = result;
 }
 
 const renderRoles = (roles) => {
