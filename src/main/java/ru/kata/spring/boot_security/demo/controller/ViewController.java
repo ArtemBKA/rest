@@ -5,6 +5,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ViewController {
+    @GetMapping("/")
+    public String rootBoot() {
+        return "redirect:/login";
+    }
+
     @GetMapping("/users")
     public String readGet() {
         return "users";
