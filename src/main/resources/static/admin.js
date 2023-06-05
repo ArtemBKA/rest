@@ -7,8 +7,6 @@ const editUserForm = document.getElementById('editUserForm');
 const deleteUserForm = document.getElementById('deleteUserForm');
 const btnCreate = document.getElementById('new-user-tab');
 
-let rolesArr = [];
-
 const editId = document.getElementById('editId');
 const editFirstName = document.getElementById('editFirstName');
 const editLastName = document.getElementById('editLastName');
@@ -33,6 +31,8 @@ const newRoles = document.getElementById('newRoles');
 
 const editUserModal = new bootstrap.Modal(document.getElementById('editUserModal'));
 const deleteUserModal = new bootstrap.Modal(document.getElementById('deleteUserModal'));
+
+let rolesArr = [];
 
 const on = (element, event, selector, handler) => {
     element.addEventListener(event, e => {
