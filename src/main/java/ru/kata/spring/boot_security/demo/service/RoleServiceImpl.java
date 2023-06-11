@@ -16,6 +16,12 @@ public class RoleServiceImpl implements RoleService {
         this.roleRepository = roleRepository;
     }
 
+    @Transactional
+    @Override
+    public void save(Role role) {
+        roleRepository.save(role);
+    }
+
     @Transactional(readOnly = true)
     @Override
     public List<Role> roleList() {
