@@ -24,9 +24,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.csrf().disable()
                 .addFilterBefore(new CharacterEncodingFilter("UTF-8", true), CsrfFilter.class)
                 .authorizeRequests()
-                .antMatchers("/users", "/user/**").access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
-                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-                .and().formLogin().successHandler(successUserHandler);
+                .antMatchers("/users", "/user/**")
+                .access("hasAnyRole('ROLE_USER', 'ROLE_ADMIN')")
+                .antMatchers("/admin/**")
+                .access("hasRole('ROLE_ADMIN')")
+                .and()
+                .formLogin()
+                .successHandler(successUserHandler);
     }
 
     @Bean
